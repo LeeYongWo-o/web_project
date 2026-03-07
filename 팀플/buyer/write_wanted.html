@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>물품 요청하기 - 나눔 플랫폼</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; letter-spacing: -0.05em; background-color: #F8F9FA; }
+        .input-box { width: 100%; background: white; border: 2px solid #E5E7EB; border-radius: 20px; padding: 18px; font-size: 18px; transition: 0.2s; }
+        .input-box:focus { border-color: #0047FF; outline: none; box-shadow: 0 0 0 4px rgba(0, 71, 255, 0.05); }
+        .choice-btn { border: 2px solid #E5E7EB; background: white; padding: 12px 20px; rounded: 16px; font-weight: 700; color: #666; transition: 0.2s; border-radius: 16px; }
+        .choice-btn.active { border-color: #0047FF; background-color: #E8EEFF; color: #0047FF; }
+    </style>
+</head>
+<body class="p-8 flex justify-center">
+
+    <div class="w-full max-w-2xl bg-white min-h-screen shadow-xl p-10 rounded-[40px] border border-gray-100">
+        <header class="mb-12 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <button onclick="location.href='wanted.html'" class="p-3 bg-gray-100 rounded-full hover:bg-gray-200 transition-all">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <h1 class="text-3xl font-bold text-gray-900">어떤 물건이 필요한가요?</h1>
+            </div>
+        </header>
+
+        <form id="wantedForm" class="space-y-10">
+            <section>
+                <label class="block text-xl font-bold text-gray-800 mb-4">카테고리 선택</label>
+                <div class="flex flex-wrap gap-3">
+                    <button type="button" onclick="selectTag(this, 'cat')" class="choice-btn active">디지털/가전</button>
+                    <button type="button" onclick="selectTag(this, 'cat')" class="choice-btn">패션/의류</button>
+                    <button type="button" onclick="selectTag(this, 'cat')" class="choice-btn">가구/인테리어</button>
+                    <button type="button" onclick="selectTag(this, 'cat')" class="choice-btn">도서/교육</button>
+                    <button type="button" onclick="selectTag(this, 'cat')" class="choice-btn">기타</button>
+                </div>
+            </section>
+
+            <section>
+                <label class="block text-xl font-bold text-gray-800 mb-4">찾으시는 물품 명칭</label>
+                <input type="text" class="input-box" placeholder="예: 아이가 볼 전집 도서, 사무용 마우스">
+            </section>
+
+            <section>
+                <label class="block text-xl font-bold text-gray-800 mb-4">얼마나 급하신가요?</label>
+                <div class="flex gap-4">
+                    <button type="button" onclick="selectTag(this, 'urg')" class="choice-btn flex-1 py-4">🏃‍♂️ 급해요!</button>
+                    <button type="button" onclick="selectTag(this, 'urg')" class="choice-btn flex-1 py-4 active">🧸 천천히 기다릴게요</button>
+                </div>
+            </section>
+
+            <section>
+                <label class="block text-xl font-bold text-gray-800 mb-4">상세 내용 (선택)</label>
+                <textarea class="input-box h-40 resize-none" placeholder="희망하는 상태나 선호하는 수령 위치 등을 자유롭게 적어주세요."></textarea>
+            </section>
+
+            <div class="pt-6">
+                <button type="button" onclick="submitWanted()" class="w-full bg-[#0047FF] text-white py-6 rounded-[28px] text-2xl font-bold shadow-lg shadow-blue-100 active:scale-95 transition-all">
+                    요청 게시글 등록하기
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+       
+        function selectTag(btn, group) {
+            const siblings = btn.parentElement.querySelectorAll('.choice-btn');
+            siblings.forEach(s => s.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function submitWanted() {
+            alert('나눔 요청이 게시판에 등록되었습니다! ');
+            location.href = 'wanted_board.html';
+        }
+    </script>
+
+</body>
+</html>

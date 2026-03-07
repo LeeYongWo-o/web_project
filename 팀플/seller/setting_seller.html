@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기부자 - 설정</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; letter-spacing: -0.05em; background-color: #F8F9FA; }
+        .toggle-bg { width: 60px; height: 32px; background-color: #E5E7EB; border-radius: 99px; position: relative; transition: all 0.3s; }
+        .toggle-dot { width: 24px; height: 24px; background-color: white; border-radius: 50%; position: absolute; top: 4px; left: 4px; transition: all 0.3s; }
+        .active .toggle-bg { background-color: #22C55E; }
+        .active .toggle-dot { left: 32px; }
+    </style>
+</head>
+<body class="p-8">
+
+    <div class="flex items-center gap-4 mb-10">
+        <button onclick="location.href='mypage_seller.html'" class="hover:bg-gray-100 p-2 rounded-full transition-all">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+        </button>
+        <h1 class="text-[36px] font-bold text-[#333]">환경 설정</h1>
+    </div>
+
+    <div class="bg-white rounded-[40px] shadow-sm border border-gray-100 overflow-hidden">
+        <div class="p-8 border-b border-gray-50 flex justify-between items-center active:bg-gray-50" onclick="this.classList.toggle('active')">
+            <div>
+                <h2 class="text-[22px] font-bold text-[#333]">나눔 신청 알림</h2>
+                <p class="text-gray-400">누군가 내 물품을 신청하면 알림을 받습니다</p>
+            </div>
+            <div class="active"><div class="toggle-bg"><div class="toggle-dot"></div></div></div>
+        </div>
+
+        <div onclick="location.href='privacy.html'" class="p-8 border-b border-gray-50 flex justify-between items-center active:bg-gray-50 transition-all">
+            <div>
+                <h2 class="text-[22px] font-bold text-[#333]">개인정보 처리방침</h2>
+                <p class="text-gray-400">데이터 수집 및 이용 안내</p>
+            </div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#CCC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+
+        <div onclick="confirm('로그아웃 하시겠습니까?')" class="p-8 flex justify-between items-center active:bg-gray-50">
+            <h2 class="text-[22px] font-bold text-[#FF4D4D]">로그아웃</h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#CCC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+    </div>
+
+</body>
+</html>
